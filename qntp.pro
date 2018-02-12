@@ -1,5 +1,4 @@
 TEMPLATE = lib
-TARGET   = qntp
 QT      -= gui
 QT      += network
 
@@ -8,6 +7,12 @@ MOC_DIR = temp/moc
 INCLUDEPATH += \
   include \
 
+CONFIG(release, debug|release) {
+    TARGET   = qntp
+} else {
+    TARGET   = qntpd
+}
+ 
 CONFIG(debug, debug|release) {
   DESTDIR         = debug
   OBJECTS_DIR     = debug
